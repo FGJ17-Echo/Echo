@@ -2,9 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BatController : MonoBehaviour {
+public class BatController : MonoBehaviour
+{
     [SerializeField]
     private float _maxEnergy = 100;
+    private float MaxEnergy
+    {
+        get
+        {
+            return _maxEnergy;
+        }
+    }
     [SerializeField]
 	private float moveSpeed = 15.0f;
 	[SerializeField]
@@ -66,6 +74,7 @@ public class BatController : MonoBehaviour {
                 EnergyChanged(new EnergyChangedEventArgs() {
                     Bat = this,
                     Delta = delta,
+                    CanDie = canDie,
                     RemainingEnergy = CurrentEnergy,
                     Source = source
                 });
@@ -115,6 +124,7 @@ public class BatController : MonoBehaviour {
         public BatController Bat { get; set; }
         public float RemainingEnergy { get; set; }
         public float Delta { get; set; }
+        public bool CanDie { get; set; }
         public object Source { get; set; }
     }
 }
