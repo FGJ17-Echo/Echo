@@ -43,11 +43,16 @@ public class CameraController : MonoBehaviour
     private Rigidbody2D _targetRigidbody;
 
 	[SerializeField]
-	private float _shakeDuration = 0.5f;
+	private float _shakeSpeed = 0.5f;
 	[SerializeField]
-	private float _shakeMagnitude = 0.3f;
+	private float _shakeAmplifier = 0.3f;
 	private float _cameraShakeX = 0f;
 	private float _cameraShakeY = 0f;
+
+    private float _shake = 0;
+
+    [SerializeField]
+    private float _maxShake = 10;
 
 	void Start ()
     {
@@ -65,9 +70,25 @@ public class CameraController : MonoBehaviour
             _targetRigidbody = _target.GetComponent<Rigidbody2D>();
         }
     }
+
+    public void AddShake(float amount)
+    {
+        _shake = Mathf.Clamp(_shake + amount, 0, _maxShake);
+    }
 	
 	void Update ()
     {
+        if (_shake > 0)
+        {
+            CameraShake();
+            _shake -= Time.deltaTime  * _shakeSpeed;
+        }
+        else
+        {
+            _cameraShakeX = 0;
+            _cameraShakeY = 0;
+        }
+
 		if (_target && _target.gameObject.activeInHierarchy)
         {
             SetZoom();
@@ -133,26 +154,19 @@ public class CameraController : MonoBehaviour
 		BatController.EnergyChanged -= BatController_EnergyChanged;
 	}
 
-	void BatController_EnergyChanged (BatController.EnergyChangedEventArgs obj)
+	void BatController_EnergyChanged (BatController.EnergyChangedEventArgs args)
 	{
-		StartCoroutine(CameraShake());
-	}
+        if (args.Delta < 0 && args.CanDie)
+        {
+            AddShake(-args.Delta);
+        }
+    }
 
-
-	IEnumerator CameraShake() {
-		float elapsed = 0.0f;
-		Vector3 originalCamPos = Camera.main.transform.position;
-		while (elapsed < _shakeDuration) {
-			elapsed += Time.deltaTime;          
-			float percentComplete = elapsed / _shakeDuration;         
-			float damper = 1.0f - Mathf.Clamp(4.0f * percentComplete - 3.0f, 0.0f, 1.0f);
-			_cameraShakeX = UnityEngine.Random.value * 2.0f - 1.0f;
-			_cameraShakeY = UnityEngine.Random.value * 2.0f - 1.0f;
-			_cameraShakeX *= _shakeMagnitude * damper;
-			_cameraShakeY *= _shakeMagnitude * damper;
-			yield return null;
-		}
-		_cameraShakeX = 0f;
-		_cameraShakeY = 0f;
+	void CameraShake()
+    {
+		_cameraShakeX = UnityEngine.Random.value * 2.0f - 1.0f;
+		_cameraShakeY = UnityEngine.Random.value * 2.0f - 1.0f;
+		_cameraShakeX *= _shakeAmplifier * _shake;
+		_cameraShakeY *= _shakeAmplifier * _shake;	
 	}
 }
