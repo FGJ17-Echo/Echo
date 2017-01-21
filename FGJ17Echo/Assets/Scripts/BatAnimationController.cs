@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BatAnimationController : MonoBehaviour {
-
-	[SerializeField]
+public class BatAnimationController : MonoBehaviour
+{
+    [SerializeField]
+    private BatController _bat;
+    [SerializeField]
 	private DirectionController _dirCont;
 	private Rigidbody2D _rb2d;
 	private Animator _animator;
@@ -34,11 +36,19 @@ public class BatAnimationController : MonoBehaviour {
 		transform.localEulerAngles = euler;
 
         //animations
-        if (_rb2d.velocity.magnitude < _idleTreshold && Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 0)
+        if (_bat.HasTheKey)
+        {
+            _animator.SetBool("HasKey", true);
+        }
+        else if (_rb2d.velocity.magnitude < _idleTreshold && Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 0)
+        {
             _animator.SetBool("idle", true);
+            _animator.SetBool("HasKey", false);
+        }
         else
         {
             _animator.SetBool("idle", false);
+            _animator.SetBool("HasKey", false);
             _animator.speed = 0.5f + new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).magnitude * 0.5f;
         }
 	}

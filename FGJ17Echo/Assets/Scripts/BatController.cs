@@ -15,7 +15,9 @@ public class BatController : MonoBehaviour, IDamageReceiver
             return _maxEnergy;
         }
     }
-    
+
+    public bool HasTheKey { get; private set; }
+
     [SerializeField]
     private EchoLocator _echoLocator;
 
@@ -73,7 +75,6 @@ public class BatController : MonoBehaviour, IDamageReceiver
                 Source = null
             });
         }
-        
     }
 
     public void UseEnegy(float amount, bool canDie = false, object source = null)
@@ -92,6 +93,16 @@ public class BatController : MonoBehaviour, IDamageReceiver
         {
             ChangeEnergy(amount, canDie, source);
         }
+    }
+
+    internal void CollectKey()
+    {
+        HasTheKey = true;
+     }
+
+    internal void DropKey()
+    {
+        HasTheKey = false;
     }
 
     private void ChangeEnergy(float amount, bool canDie = false, object source = null)
@@ -176,9 +187,14 @@ public class BatController : MonoBehaviour, IDamageReceiver
             if (energySource != null)
             {
                 var energy = energySource.Collect(this);
-                GainEnegy(energy);
-                _eatParticles.Play();
-                _eatSound.Play();
+
+                if (energy > 0)
+                {
+                    GainEnegy(energy);
+
+                    _eatParticles.Play();
+                    _eatSound.Play();
+                }
             }
         }
     }
