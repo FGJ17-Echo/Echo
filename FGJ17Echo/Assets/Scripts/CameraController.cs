@@ -41,7 +41,7 @@ public class CameraController : MonoBehaviour
     private float _maxMoveSpeed = 10;
 
     private Rigidbody2D _targetRigidbody;
-	
+
 	void Start ()
     {
         if (_target)
@@ -114,5 +114,20 @@ public class CameraController : MonoBehaviour
         {
             _cameras[i].orthographicSize = Mathf.MoveTowards(_cameras[i].orthographicSize, size, Time.deltaTime * _sizeChangeSpeed);
         }
-    }
+	}
+
+	void OnEnable() 
+	{
+		BatController.EnergyChanged += BatController_EnergyChanged;
+	}
+
+	void OnDisable() 
+	{
+		BatController.EnergyChanged -= BatController_EnergyChanged;
+	}
+
+	void BatController_EnergyChanged (BatController.EnergyChangedEventArgs obj)
+	{
+		Debug.Log("lepakko törmäsi" );
+	}
 }
