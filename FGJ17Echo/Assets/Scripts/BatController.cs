@@ -29,6 +29,9 @@ public class BatController : MonoBehaviour, IDamageReceiver
     [SerializeField]
     private float _deadzone = 0.08f;
 
+    [SerializeField]
+    private ParticleSystem _eatParticles;
+
     public static event System.Action<EnergyChangedEventArgs> EnergyChanged;
    
     public float CurrentEnergy { get; private set; }
@@ -169,6 +172,7 @@ public class BatController : MonoBehaviour, IDamageReceiver
             {
                 var energy = energySource.Collect();
                 GainEnegy(energy);
+                _eatParticles.Play();
             }
         }
     }
