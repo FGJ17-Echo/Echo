@@ -5,11 +5,11 @@ using UnityEngine;
 public class CollectableEnergySource : MonoBehaviour
 {
     [SerializeField]
-    private float _energy = 10;
+    protected float _energy = 10;
 
-    private bool _isCollected = false;
+    protected bool _isCollected = false;
 
-    public float Collect()
+    public virtual float Collect(BatController bat)
     {
         if (_isCollected) return 0;
 
