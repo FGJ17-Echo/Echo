@@ -20,7 +20,14 @@ public class BatController : MonoBehaviour
     [SerializeField]
     private EchoLocator _echoLocator;
 
-	private Rigidbody2D rb2d;
+    [SerializeField]
+    private float _minVelocityForDamage = 1f;
+    [SerializeField]
+    private float _damagePerVelocity = 1f;
+    [SerializeField]
+    private float _maxDamageFromCollision = 10f;
+
+    private Rigidbody2D rb2d;
 
     [SerializeField]
     private float _deadzone = 0.08f;
@@ -28,6 +35,9 @@ public class BatController : MonoBehaviour
     public static event System.Action<EnergyChangedEventArgs> EnergyChanged;
    
     public float CurrentEnergy { get; private set; }
+
+    [SerializeField]
+    private LayerMask _collisionDamageLayerMask;
 
 	void Awake ()
     {
@@ -116,6 +126,24 @@ public class BatController : MonoBehaviour
         {
             rb2d.AddForce(Vector2.right * direction.x * moveSpeed * Time.deltaTime);
             rb2d.AddForce(Vector2.up * direction.y * moveSpeed * Time.deltaTime);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        var layermask = _collisionDamageLayerMask;
+        var layer = collision.gameObject.layer;
+
+        if (layermask == (layermask | (1 << layer)))
+        {
+            var magnitudeSqr = collision.relativeVelocity.sqrMagnitude;
+
+            var excessSpeed = magnitudeSqr - _minVelocityForDamage;
+            if (excessSpeed > 0)
+            {
+                var damage = Mathf.Clamp(excessSpeed * _damagePerVelocity, 0, _maxDamageFromCollision);
+                UseEnegy(damage, true, collision);
+            }
         }
     }
 
