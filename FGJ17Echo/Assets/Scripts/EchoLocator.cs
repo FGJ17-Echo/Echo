@@ -35,7 +35,7 @@ public class EchoLocator : MonoBehaviour
     private void Update()
     {
         _cooldownTimer = Mathf.MoveTowards(_cooldownTimer, 0, Time.deltaTime);
-        if (Input.GetKeyUp(KeyCode.R)) Echo();
+        if (Input.GetButtonUp("Jump")) Echo();
     }
 
     public void Echo()
