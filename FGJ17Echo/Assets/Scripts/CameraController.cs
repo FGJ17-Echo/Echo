@@ -42,6 +42,13 @@ public class CameraController : MonoBehaviour
 
     private Rigidbody2D _targetRigidbody;
 
+	[SerializeField]
+	private float _shakeDuration = 0.5f;
+	[SerializeField]
+	private float _shakeMagnitude = 0.3f;
+	private float _cameraShakeX = 0f;
+	private float _cameraShakeY = 0f;
+
 	void Start ()
     {
         if (_target)
@@ -92,7 +99,7 @@ public class CameraController : MonoBehaviour
         for (int i = 0; i < _cameraMoveTransforms.Count; i++)
         {
             targetPosition.z = _cameraMoveTransforms[i].position.z;
-            _cameraMoveTransforms[i].position = Vector3.MoveTowards(_cameraMoveTransforms[i].position, targetPosition, Time.deltaTime * _maxMoveSpeed);
+			_cameraMoveTransforms[i].position = Vector3.MoveTowards(_cameraMoveTransforms[i].position + new Vector3(_cameraShakeX, _cameraShakeY, 0f), targetPosition, Time.deltaTime * _maxMoveSpeed);
         }
     }
 
@@ -128,6 +135,24 @@ public class CameraController : MonoBehaviour
 
 	void BatController_EnergyChanged (BatController.EnergyChangedEventArgs obj)
 	{
-		Debug.Log("lepakko törmäsi" );
+		StartCoroutine(CameraShake());
+	}
+
+
+	IEnumerator CameraShake() {
+		float elapsed = 0.0f;
+		Vector3 originalCamPos = Camera.main.transform.position;
+		while (elapsed < _shakeDuration) {
+			elapsed += Time.deltaTime;          
+			float percentComplete = elapsed / _shakeDuration;         
+			float damper = 1.0f - Mathf.Clamp(4.0f * percentComplete - 3.0f, 0.0f, 1.0f);
+			_cameraShakeX = UnityEngine.Random.value * 2.0f - 1.0f;
+			_cameraShakeY = UnityEngine.Random.value * 2.0f - 1.0f;
+			_cameraShakeX *= _shakeMagnitude * damper;
+			_cameraShakeY *= _shakeMagnitude * damper;
+			yield return null;
+		}
+		_cameraShakeX = 0f;
+		_cameraShakeY = 0f;
 	}
 }
