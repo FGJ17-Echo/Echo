@@ -13,14 +13,19 @@ public class SoundManager : MonoBehaviour
     [SerializeField]
     private float _minIntervalBetweenSameSounds = 0.3f;
 
+    [SerializeField]
     private List<AudioClip> _neutralPings;
 
+    [SerializeField]
     private List<AudioClip> _dangerPings;
 
+    [SerializeField]
     private List<AudioClip> _damageClips;
 
+    [SerializeField]
     private List<AudioClip> _bonusPings;
 
+    [SerializeField]
     private List<AudioClip> _positiveClips;
 
     public enum SoundEffect
@@ -44,15 +49,22 @@ public class SoundManager : MonoBehaviour
     {
         var lastTime = _soundTimes.ContainsKey(effect) ? _soundTimes[effect] : -100;
 
-        if (lastTime + _minIntervalBetweenSameSounds < Time.time) return;
+        if (lastTime + _minIntervalBetweenSameSounds > Time.time) return;
 
         AudioSource source = _audioSourcePool.FirstOrDefault(x => !x.isPlaying);
         
         if (source != null)
         {
-            source.clip = GetClip(effect);
-            source.transform.position = position;
-            source.Play();
+            var clip = GetClip(effect);
+
+            if (clip != null)
+            {
+                source.clip = GetClip(effect);
+                source.transform.position = position;
+                source.Play();
+
+                _soundTimes[effect] = Time.time;
+            }
         }
     }
 
