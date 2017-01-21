@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,10 +13,10 @@ public class BatController : MonoBehaviour {
 		rb2d = gameObject.GetComponent<Rigidbody2D>();
 	}
 
-	void Update () {
+	void FixedUpdate () {
 		if(rb2d.velocity.magnitude < maxVelocity) {
-			rb2d.AddForce(Vector2.right * Input.GetAxis("Horizontal") * moveSpeed);
-			rb2d.AddForce(Vector2.up * Input.GetAxis("Vertical") * moveSpeed);
+			rb2d.AddForce(Vector2.right * Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime);
+			rb2d.AddForce(Vector2.up * Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime);
 		}
 	}
 }
