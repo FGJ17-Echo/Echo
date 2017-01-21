@@ -64,6 +64,7 @@ public class BatController : MonoBehaviour {
             if (EnergyChanged != null)
             {
                 EnergyChanged(new EnergyChangedEventArgs() {
+                    Bat = this,
                     Delta = delta,
                     RemainingEnergy = CurrentEnergy,
                     Source = source
@@ -111,6 +112,7 @@ public class BatController : MonoBehaviour {
 
     public class EnergyChangedEventArgs
     {
+        public BatController Bat { get; set; }
         public float RemainingEnergy { get; set; }
         public float Delta { get; set; }
         public object Source { get; set; }
