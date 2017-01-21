@@ -28,4 +28,9 @@ public class DirectionController : MonoBehaviour
 
         transform.eulerAngles = new Vector3(0, 0, snapped);
 	}
+
+	public float GetDirectionAngle() 
+	{
+		return transform.eulerAngles.z;
+	}
 }
