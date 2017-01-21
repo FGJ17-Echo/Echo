@@ -22,6 +22,16 @@ public class EchoLocator : MonoBehaviour
     [SerializeField]
     private LayerMask _layerMask;
 
+    [SerializeField]
+    private float _energyUsage = 1;
+    public float EnergyUsage
+    {
+        get
+        {
+            return _energyUsage;
+        }
+    }
+
     private Transform _aimTransform;
 
     private float _cooldownTimer = 0;
@@ -35,7 +45,6 @@ public class EchoLocator : MonoBehaviour
     private void Update()
     {
         _cooldownTimer = Mathf.MoveTowards(_cooldownTimer, 0, Time.deltaTime);
-        if (Input.GetButtonUp("Jump")) Echo();
     }
 
     public void Echo()
