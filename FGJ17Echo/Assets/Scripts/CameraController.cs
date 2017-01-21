@@ -7,6 +7,8 @@ public class CameraController : MonoBehaviour
 {
     [SerializeField]
     private Transform _target;
+    [SerializeField]
+    private Transform _targetLookDirection;
 
     [SerializeField]
     private float _minSize = 2;
@@ -31,6 +33,9 @@ public class CameraController : MonoBehaviour
     private float _thresholdForLead = 1;
     [SerializeField]
     private float _velocityForMaxLead = 10;
+
+    [SerializeField]
+    private float _lookDistance = 2;
 
     [SerializeField]
     private float _maxMoveSpeed = 10;
@@ -76,6 +81,11 @@ public class CameraController : MonoBehaviour
                 var lead = Mathf.Lerp(0, _maxLead, ((velocity - _thresholdForLead) / (_velocityForMaxLead - _thresholdForLead)));
                 var direction2d = _targetRigidbody.velocity.normalized;
                 targetPosition += lead * new Vector3(direction2d.x, direction2d.y, 0);
+            }
+            else
+            {
+                var direction2d = _targetLookDirection.forward;
+                targetPosition += _lookDistance * new Vector3(direction2d.x, direction2d.y, 0);
             }
         }
 
