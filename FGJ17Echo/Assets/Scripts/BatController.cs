@@ -6,7 +6,7 @@ public class BatController : MonoBehaviour
 {
     [SerializeField]
     private float _maxEnergy = 100;
-    private float MaxEnergy
+    public float MaxEnergy
     {
         get
         {
