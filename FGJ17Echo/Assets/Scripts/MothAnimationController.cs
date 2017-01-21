@@ -12,11 +12,10 @@ public class MothAnimationController : MonoBehaviour {
 	}
 
 	void Update () {
-//		Quaternion rotation = Quaternion.LookRotation(_rb2d.velocity, transform.TransformDirection(Vector3.up));
-//		transform.rotation = new Quaternion(0, 0, rotation.z, rotation.w);
-		var euler = transform.localEulerAngles;
-		euler.x = _rb2d.velocity.x;
-		euler.y = _rb2d.velocity.y;
-		transform.localEulerAngles = euler;
+		var direction = new Vector3(_rb2d.velocity.x, _rb2d.velocity.y, 0);
+
+		var angle = Vector3.Angle(direction, Vector3.up);
+		if (_rb2d.velocity.x < 0) angle = 360 - angle;
+		transform.eulerAngles = new Vector3(0, 0, angle);
 	}
 }
