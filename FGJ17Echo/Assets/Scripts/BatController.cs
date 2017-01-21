@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(MoveController))]
 public class BatController : MonoBehaviour
 {
     [SerializeField]
@@ -13,10 +14,7 @@ public class BatController : MonoBehaviour
             return _maxEnergy;
         }
     }
-    [SerializeField]
-	private float moveSpeed = 15.0f;
-	[SerializeField]
-	private float maxVelocity = 100f;
+    
     [SerializeField]
     private EchoLocator _echoLocator;
 
@@ -36,12 +34,15 @@ public class BatController : MonoBehaviour
    
     public float CurrentEnergy { get; private set; }
 
+    private MoveController _moveController;
+
     [SerializeField]
     private LayerMask _collisionDamageLayerMask;
 
 	void Awake ()
     {
 		rb2d = gameObject.GetComponent<Rigidbody2D>();
+        _moveController = GetComponent<MoveController>();
 	}
 
     void Start()
@@ -52,6 +53,18 @@ public class BatController : MonoBehaviour
     public void Init()
     {
         CurrentEnergy = _maxEnergy;
+        if (EnergyChanged != null)
+        {
+            EnergyChanged(new EnergyChangedEventArgs()
+            {
+                Bat = this,
+                Delta = 0,
+                CanDie = false,
+                RemainingEnergy = CurrentEnergy,
+                Source = null
+            });
+        }
+        
     }
 
     public void UseEnegy(float amount, bool canDie = false, object source = null)
@@ -108,7 +121,7 @@ public class BatController : MonoBehaviour
             yMove = 0;
         }
 
-        Move(new Vector2(xMove, yMove));        
+        _moveController.Move(new Vector2(xMove, yMove));        
 	}
 
     public void Echo()
@@ -117,15 +130,6 @@ public class BatController : MonoBehaviour
         {
             _echoLocator.Echo();
             UseEnegy(_echoLocator.EnergyUsage);
-        }
-    }
-
-    public void Move(Vector2 direction)
-    {
-        if (rb2d.velocity.magnitude < maxVelocity)
-        {
-            rb2d.AddForce(Vector2.right * direction.x * moveSpeed * Time.deltaTime);
-            rb2d.AddForce(Vector2.up * direction.y * moveSpeed * Time.deltaTime);
         }
     }
 
@@ -144,6 +148,19 @@ public class BatController : MonoBehaviour
                 var damage = Mathf.Clamp(excessSpeed * _damagePerVelocity, 0, _maxDamageFromCollision);
                 UseEnegy(damage, true, collision);
             }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        var go = collider.attachedRigidbody ? collider.attachedRigidbody.gameObject : collider.gameObject;
+
+        var energySource = go.GetComponent<CollectableEnergySource>();
+
+        if (energySource != null)
+        {
+            var energy = energySource.Collect();
+            GainEnegy(energy);
         }
     }
 
