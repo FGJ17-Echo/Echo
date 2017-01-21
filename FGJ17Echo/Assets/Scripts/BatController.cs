@@ -54,7 +54,7 @@ public class BatController : MonoBehaviour {
 
     private void ChangeEnergy(float amount, bool canDie = false, object source = null)
     {
-        var newAmount = CurrentEnergy = Mathf.Clamp(CurrentEnergy + amount, 0, _maxEnergy);
+        var newAmount = Mathf.Clamp(CurrentEnergy + amount, 0, _maxEnergy);
 
         if (newAmount != CurrentEnergy)
         {
