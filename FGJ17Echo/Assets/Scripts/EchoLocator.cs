@@ -19,6 +19,9 @@ public class EchoLocator : MonoBehaviour
     [SerializeField]
     private float _range = 10;
 
+    [SerializeField]
+    private LayerMask _layerMask;
+
     private Transform _aimTransform;
 
     private float _cooldownTimer = 0;
@@ -50,7 +53,7 @@ public class EchoLocator : MonoBehaviour
 
         for (int i = 0; i < _rays; i++)
         {
-            var hit = Physics2D.Raycast(origin, _aimTransform.forward, _range);
+            var hit = Physics2D.Raycast(origin, _aimTransform.forward, _range, _layerMask);
 
             angle.x += angleDiff;
             _aimTransform.localEulerAngles = angle;
