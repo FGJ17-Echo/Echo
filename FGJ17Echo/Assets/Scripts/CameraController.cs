@@ -15,6 +15,8 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     private float _maxSize = 4;
     [SerializeField]
+    private float _sizeChangeSpeed = 2;
+    [SerializeField]
     private float _velocityForMaxZoom = 20;
 
     [SerializeField]
@@ -29,6 +31,9 @@ public class CameraController : MonoBehaviour
     private float _thresholdForLead = 1;
     [SerializeField]
     private float _velocityForMaxLead = 10;
+
+    [SerializeField]
+    private float _maxMoveSpeed = 10;
 
     private Rigidbody2D _targetRigidbody;
 	
@@ -77,7 +82,7 @@ public class CameraController : MonoBehaviour
         for (int i = 0; i < _cameraMoveTransforms.Count; i++)
         {
             targetPosition.z = _cameraMoveTransforms[i].position.z;
-            _cameraMoveTransforms[i].position = targetPosition;
+            _cameraMoveTransforms[i].position = Vector3.MoveTowards(_cameraMoveTransforms[i].position, targetPosition, Time.deltaTime * _maxMoveSpeed);
         }
     }
 
@@ -97,7 +102,7 @@ public class CameraController : MonoBehaviour
 
         for (int i = 0; i < _cameras.Count; i++)
         {
-            _cameras[i].orthographicSize = size;
+            _cameras[i].orthographicSize = Mathf.MoveTowards(_cameras[i].orthographicSize, size, Time.deltaTime * _sizeChangeSpeed);
         }
     }
 }
