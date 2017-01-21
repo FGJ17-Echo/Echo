@@ -8,6 +8,9 @@ public class InsectController : MonoBehaviour
     private MoveController _moveController;
 
     [SerializeField]
+    private bool _avoidBat;
+
+    [SerializeField]
     private Transform _areaCenter;
 
     [SerializeField]
@@ -53,21 +56,24 @@ public class InsectController : MonoBehaviour
 
         return new Vector3(point.x, point.y, 0) * _areaRadius + center;
     }
-    /*
+    
     private void OnTriggerStay2D(Collider2D collider)
     {
-        var go = collider.attachedRigidbody ? collider.attachedRigidbody.gameObject : collider.gameObject;
-
-        var bat = go.GetComponent<BatController>();
-        if (bat != null)
+        if (_avoidBat)
         {
-            var point = Random.insideUnitCircle;
+            var go = collider.attachedRigidbody ? collider.attachedRigidbody.gameObject : collider.gameObject;
 
-            var direction = (transform.position - go.transform.position).normalized;
+            var bat = go.GetComponent<BatController>();
+            if (bat != null)
+            {
+                var point = Random.insideUnitCircle;
 
-            _targetLocation = transform.position + direction * _areaRadius + new Vector3(point.x, point.y, 0) * _areaRadius;
+                var direction = (transform.position - go.transform.position).normalized;
 
-            _refreshTimer = _refreshTime;
+                _targetLocation = transform.position + direction * _areaRadius + new Vector3(point.x, point.y, 0) * _areaRadius;
+
+                _refreshTimer = _refreshTime;
+            }
         }
-    }*/
+    }
 }
