@@ -1,18 +1,18 @@
 fileFormatVersion: 2
-guid: acaa935af6977ab48b797c56e124a69a
-timeCreated: 1485011966
+guid: 9b3b617a797f5b84d99de2d9e89789cd
+timeCreated: 1485016874
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
-    21300000: tile6_invert_0
-    21300002: tile6_invert_1
-    21300004: tile6_invert_2
-    21300006: tile6_invert_3
-    21300008: tile6_invert_4
-    21300010: tile6_invert_5
-    21300012: tile6_invert_6
-    21300014: tile6_invert_7
-    21300016: tile6_invert_8
+    21300000: tile8_0
+    21300002: tile8_1
+    21300004: tile8_2
+    21300006: tile8_3
+    21300008: tile8_4
+    21300010: tile8_5
+    21300012: tile8_6
+    21300014: tile8_7
+    21300016: tile8_8
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -103,7 +103,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tile6_invert_0
+      name: tile8_0
       rect:
         serializedVersion: 2
         x: 0
@@ -116,7 +116,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: tile6_invert_1
+      name: tile8_1
       rect:
         serializedVersion: 2
         x: 341
@@ -129,7 +129,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: tile6_invert_2
+      name: tile8_2
       rect:
         serializedVersion: 2
         x: 682
@@ -142,7 +142,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: tile6_invert_3
+      name: tile8_3
       rect:
         serializedVersion: 2
         x: 0
@@ -155,7 +155,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: tile6_invert_4
+      name: tile8_4
       rect:
         serializedVersion: 2
         x: 341
@@ -168,7 +168,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: tile6_invert_5
+      name: tile8_5
       rect:
         serializedVersion: 2
         x: 682
@@ -181,7 +181,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: tile6_invert_6
+      name: tile8_6
       rect:
         serializedVersion: 2
         x: 0
@@ -194,7 +194,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: tile6_invert_7
+      name: tile8_7
       rect:
         serializedVersion: 2
         x: 341
@@ -207,7 +207,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: tile6_invert_8
+      name: tile8_8
       rect:
         serializedVersion: 2
         x: 682
