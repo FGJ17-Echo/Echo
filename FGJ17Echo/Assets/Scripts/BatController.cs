@@ -73,6 +73,8 @@ public class BatController : MonoBehaviour, IDamageReceiver
         if (amount > 0)
         {
             ChangeEnergy(-amount, canDie, source);
+
+            if (canDie) SoundManager.Instance.PlaySound(SoundManager.SoundEffect.Damage, transform.position);
         }
     }
 

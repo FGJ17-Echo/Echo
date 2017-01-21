@@ -72,6 +72,18 @@ public class EchoLocator : MonoBehaviour
                 var echo = Instantiate(_echoMaskPrefab);
                 echo.transform.position = hit.point;
                 echo.Init(hit.distance / 8f);
+
+                var go = hit.collider.attachedRigidbody ? hit.collider.attachedRigidbody.gameObject : hit.collider.gameObject;
+
+                var collectible = go.GetComponent<CollectableEnergySource>();
+                var damage = go.GetComponent<TouchDamage>();
+
+                SoundManager.SoundEffect effect = SoundManager.SoundEffect.NeutralPing;
+
+                if (damage) effect = SoundManager.SoundEffect.DangerPing;
+                else if (collectible) effect = SoundManager.SoundEffect.BonusPing;
+
+                SoundManager.Instance.PlaySound(effect, new Vector3(hit.point.x, hit.point.y, 0));
             }
         }
     }
