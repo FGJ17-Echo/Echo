@@ -1,0 +1,217 @@
+fileFormatVersion: 2
+guid: 05906e3d2a46b534888f9e1e95c23a40
+timeCreated: 1485037832
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: "py\xF6rik\xE4kki_0"
+    21300002: "py\xF6rik\xE4kki_1"
+    21300004: "py\xF6rik\xE4kki_2"
+    21300006: "py\xF6rik\xE4kki_3"
+    21300008: "py\xF6rik\xE4kki_4"
+    21300010: "py\xF6rik\xE4kki_5"
+    21300012: "py\xF6rik\xE4kki_6"
+    21300014: "py\xF6rik\xE4kki_7"
+    21300016: "py\xF6rik\xE4kki_8"
+    21300018: "py\xF6rik\xE4kki_9"
+    21300020: "py\xF6rik\xE4kki_10"
+    21300022: "py\xF6rik\xE4kki_11"
+    21300024: "py\xF6rik\xE4kki_12"
+    21300026: "py\xF6rik\xE4kki_13"
+    21300028: "py\xF6rik\xE4kki_14"
+    21300030: "py\xF6rik\xE4kki_15"
+    21300032: "py\xF6rik\xE4kki_16"
+    21300034: "py\xF6rik\xE4kki_17"
+    21300036: "py\xF6rik\xE4kki_18"
+    21300038: "py\xF6rik\xE4kki_19"
+    21300040: "py\xF6rik\xE4kki_20"
+    21300042: "py\xF6rik\xE4kki_21"
+    21300044: "py\xF6rik\xE4kki_22"
+    21300046: "py\xF6rik\xE4kki_23"
+    21300048: "py\xF6rik\xE4kki_24"
+    21300050: "py\xF6rik\xE4kki_25"
+    21300052: "py\xF6rik\xE4kki_26"
+    21300054: "py\xF6rik\xE4kki_27"
+    21300056: "py\xF6rik\xE4kki_28"
+    21300058: "py\xF6rik\xE4kki_29"
+    21300060: "py\xF6rik\xE4kki_30"
+    21300062: "py\xF6rik\xE4kki_31"
+    21300064: "py\xF6rik\xE4kki_32"
+    21300066: "py\xF6rik\xE4kki_33"
+    21300068: "py\xF6rik\xE4kki_34"
+    21300070: "py\xF6rik\xE4kki_35"
+    21300072: "py\xF6rik\xE4kki_36"
+    21300074: "py\xF6rik\xE4kki_37"
+    21300076: "py\xF6rik\xE4kki_38"
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 400
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WebGL
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "py\xF6rik\xE4kki_0"
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 3681
+        width: 1224
+        height: 927
+      alignment: 9
+      pivot: {x: 0.49278858, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "py\xF6rik\xE4kki_4"
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 2775
+        width: 1561
+        height: 890
+      alignment: 9
+      pivot: {x: 0.50565445, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "py\xF6rik\xE4kki_16"
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 2111
+        width: 1587
+        height: 617
+      alignment: 9
+      pivot: {x: 0.5055619, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "py\xF6rik\xE4kki_26"
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 1552
+        width: 1224
+        height: 488
+      alignment: 9
+      pivot: {x: 0.5072113, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "py\xF6rik\xE4kki_28"
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 922
+        width: 1224
+        height: 601
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "py\xF6rik\xE4kki_35"
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 107
+        width: 1224
+        height: 823
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
