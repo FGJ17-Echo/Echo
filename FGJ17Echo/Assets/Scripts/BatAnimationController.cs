@@ -5,11 +5,21 @@ using UnityEngine;
 public class BatAnimationController : MonoBehaviour {
 
 	[SerializeField]
-	private DirectionController dirCont;
+	private DirectionController _dirCont;
+	private Rigidbody2D _rb2d;
+	private Animator _animator;
+	[SerializeField]
+	private float _idleTreshold = 0.1f;
+
+	void Awake () 
+	{
+		_rb2d = transform.parent.GetComponent<Rigidbody2D>();
+		_animator = GetComponent<Animator> ();
+	}
 
 	void Update () 
 	{
-		float angle = dirCont.GetDirectionAngle();
+		float angle = _dirCont.GetDirectionAngle();
 		var euler = transform.localEulerAngles;
 		if(angle > 90 && angle < 280)
 		{
@@ -22,5 +32,11 @@ public class BatAnimationController : MonoBehaviour {
 			euler.z = angle;
 		}
 		transform.localEulerAngles = euler;
+
+		//animations
+		if(_rb2d.velocity.magnitude < _idleTreshold && Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 0)
+			_animator.SetBool("idle", true);
+		else
+			_animator.SetBool("idle", false);
 	}
 }

@@ -1,15 +1,38 @@
 fileFormatVersion: 2
 guid: fc21f70cd5cf64290a28941befb8adcd
-timeCreated: 1485010842
+timeCreated: 1485012144
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Fly_!
-    21300002: Fly_2
-    21300004: Fly_3
-    21300006: Fly_4
-    21300008: Fly_5
-    21300010: Idle_1
+    21300000: Bat_Fly_!
+    21300002: Bat_Fly_2
+    21300004: Bat_Fly_3
+    21300006: Bat_Fly_4
+    21300008: Bat_Fly_5
+    21300010: Bat_Idle_1
+    21300012: Bat_Idle_2
+    21300014: Bat_Idle_3
+    21300016: Bat_Idle_4
+    21300018: Moth_1
+    21300020: Moth_2
+    21300022: Moth_3
+    21300024: Moth_4
+    21300026: Firefly_1
+    21300028: Firefly_2
+    21300030: Firefly_3
+    21300032: Firefly_4
+    21300034: Swarm_1
+    21300036: Swarm_2
+    21300038: Swarm_3
+    21300040: Key_1
+    21300042: Key_2
+    21300044: Key_3
+    21300046: Key_4
+    21300048: Bat_With_Key_1
+    21300050: Bat_With_Key_2
+    21300052: Bat_With_Key3
+    21300054: Bat_With_Key_4
+    21300056: Bat_With_Key_5
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -84,7 +107,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Fly_!
+      name: Bat_Fly_!
       rect:
         serializedVersion: 2
         x: 22
@@ -97,7 +120,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Fly_2
+      name: Bat_Fly_2
       rect:
         serializedVersion: 2
         x: 288
@@ -110,7 +133,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Fly_3
+      name: Bat_Fly_3
       rect:
         serializedVersion: 2
         x: 552
@@ -123,7 +146,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Fly_4
+      name: Bat_Fly_4
       rect:
         serializedVersion: 2
         x: 816
@@ -136,7 +159,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Fly_5
+      name: Bat_Fly_5
       rect:
         serializedVersion: 2
         x: 1081
@@ -149,13 +172,312 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Idle_1
+      name: Bat_Idle_1
       rect:
         serializedVersion: 2
         x: 22
         y: 1068
         width: 252
         height: 335
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Bat_Idle_2
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 1068
+        width: 252
+        height: 335
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Bat_Idle_3
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 1068
+        width: 252
+        height: 335
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Bat_Idle_4
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 1068
+        width: 252
+        height: 335
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Moth_1
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 719
+        width: 252
+        height: 335
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Moth_2
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 719
+        width: 252
+        height: 335
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Moth_3
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 719
+        width: 252
+        height: 335
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Moth_4
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 719
+        width: 252
+        height: 335
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Firefly_1
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 372
+        width: 252
+        height: 335
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Firefly_2
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 372
+        width: 252
+        height: 335
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Firefly_3
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 372
+        width: 252
+        height: 335
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Firefly_4
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 372
+        width: 252
+        height: 335
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Swarm_1
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 25
+        width: 515
+        height: 335
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Swarm_2
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 25
+        width: 515
+        height: 335
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Swarm_3
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 25
+        width: 515
+        height: 335
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Key_1
+      rect:
+        serializedVersion: 2
+        x: 1081
+        y: 720
+        width: 252
+        height: 335
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Key_2
+      rect:
+        serializedVersion: 2
+        x: 1345
+        y: 720
+        width: 252
+        height: 335
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Key_3
+      rect:
+        serializedVersion: 2
+        x: 1609
+        y: 720
+        width: 252
+        height: 335
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Key_4
+      rect:
+        serializedVersion: 2
+        x: 1873
+        y: 720
+        width: 252
+        height: 335
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Bat_With_Key_1
+      rect:
+        serializedVersion: 2
+        x: 1346
+        y: 1068
+        width: 252
+        height: 685
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Bat_With_Key_2
+      rect:
+        serializedVersion: 2
+        x: 1609
+        y: 1068
+        width: 252
+        height: 685
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Bat_With_Key3
+      rect:
+        serializedVersion: 2
+        x: 1873
+        y: 1068
+        width: 252
+        height: 685
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Bat_With_Key_4
+      rect:
+        serializedVersion: 2
+        x: 2138
+        y: 1068
+        width: 252
+        height: 685
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Bat_With_Key_5
+      rect:
+        serializedVersion: 2
+        x: 2402
+        y: 1068
+        width: 252
+        height: 685
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
