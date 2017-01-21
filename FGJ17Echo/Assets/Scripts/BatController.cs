@@ -25,8 +25,6 @@ public class BatController : MonoBehaviour
     [SerializeField]
     private float _maxDamageFromCollision = 10f;
 
-    private Rigidbody2D rb2d;
-
     [SerializeField]
     private float _deadzone = 0.08f;
 
@@ -41,7 +39,6 @@ public class BatController : MonoBehaviour
 
 	void Awake ()
     {
-		rb2d = gameObject.GetComponent<Rigidbody2D>();
         _moveController = GetComponent<MoveController>();
 	}
 
