@@ -37,7 +37,10 @@ public class BatController : MonoBehaviour
     [SerializeField]
     private LayerMask _collisionDamageLayerMask;
 
-	void Awake ()
+    [SerializeField]
+    private LayerMask _collectableLayerMask;
+
+    void Awake ()
     {
         _moveController = GetComponent<MoveController>();
 	}
@@ -150,14 +153,20 @@ public class BatController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        var go = collider.attachedRigidbody ? collider.attachedRigidbody.gameObject : collider.gameObject;
+        var layermask = _collectableLayerMask;
+        var layer = collider.gameObject.layer;
 
-        var energySource = go.GetComponent<CollectableEnergySource>();
-
-        if (energySource != null)
+        if (layermask == (layermask | (1 << layer)))
         {
-            var energy = energySource.Collect();
-            GainEnegy(energy);
+            var go = collider.attachedRigidbody ? collider.attachedRigidbody.gameObject : collider.gameObject;
+
+            var energySource = go.GetComponent<CollectableEnergySource>();
+
+            if (energySource != null)
+            {
+                var energy = energySource.Collect();
+                GainEnegy(energy);
+            }
         }
     }
 

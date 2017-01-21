@@ -53,4 +53,21 @@ public class InsectController : MonoBehaviour
 
         return new Vector3(point.x, point.y, 0) * _areaRadius + center;
     }
+    /*
+    private void OnTriggerStay2D(Collider2D collider)
+    {
+        var go = collider.attachedRigidbody ? collider.attachedRigidbody.gameObject : collider.gameObject;
+
+        var bat = go.GetComponent<BatController>();
+        if (bat != null)
+        {
+            var point = Random.insideUnitCircle;
+
+            var direction = (transform.position - go.transform.position).normalized;
+
+            _targetLocation = transform.position + direction * _areaRadius + new Vector3(point.x, point.y, 0) * _areaRadius;
+
+            _refreshTimer = _refreshTime;
+        }
+    }*/
 }
