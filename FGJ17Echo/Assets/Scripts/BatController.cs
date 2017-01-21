@@ -25,6 +25,8 @@ public class BatController : MonoBehaviour, IDamageReceiver
     private float _damagePerVelocity = 1f;
     [SerializeField]
     private float _maxDamageFromCollision = 10f;
+    [SerializeField]
+    private AudioSource _eatSound;
 
     [SerializeField]
     private float _deadzone = 0.08f;
@@ -176,6 +178,7 @@ public class BatController : MonoBehaviour, IDamageReceiver
                 var energy = energySource.Collect(this);
                 GainEnegy(energy);
                 _eatParticles.Play();
+                _eatSound.Play();
             }
         }
     }
