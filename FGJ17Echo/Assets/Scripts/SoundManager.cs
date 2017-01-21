@@ -86,8 +86,10 @@ public class SoundManager : MonoBehaviour
                 list = _positiveClips; break;
         }
 
-        if (list == null) return null;
+        if (list == null || list.Count == 0) return null;
 
-        return list[Random.Range(0, list.Count - 1)];
+        var rnd = Mathf.Clamp(Random.Range(0, list.Count - 2), 0, list.Count - 1);
+
+        return list[rnd];
     }
 }
