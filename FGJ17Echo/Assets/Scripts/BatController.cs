@@ -1,9 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(MoveController))]
-public class BatController : MonoBehaviour
+public class BatController : MonoBehaviour, IDamageReceiver
 {
     [SerializeField]
     private float _maxEnergy = 100;
@@ -168,6 +169,11 @@ public class BatController : MonoBehaviour
                 GainEnegy(energy);
             }
         }
+    }
+
+    public void TakeDamage(float amount, object source)
+    {
+        UseEnegy(amount, true, source);
     }
 
     public class EnergyChangedEventArgs
