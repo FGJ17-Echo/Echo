@@ -43,6 +43,8 @@ public class BatController : MonoBehaviour, IDamageReceiver
    
     public float CurrentEnergy { get; private set; }
 
+    public bool IsDead { get; private set; }
+
     private MoveController _moveController;
 
     [SerializeField]
@@ -50,6 +52,9 @@ public class BatController : MonoBehaviour, IDamageReceiver
 
     [SerializeField]
     private LayerMask _collectableLayerMask;
+
+    [SerializeField]
+    private Transform _respawnPosition;
 
     void Awake ()
     {
@@ -75,6 +80,15 @@ public class BatController : MonoBehaviour, IDamageReceiver
                 Source = null
             });
         }
+
+        GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+
+        var bounceSize = LeanTween.scale(gameObject, Vector3.one * 1.2f, 2);
+        bounceSize.setEaseInOutBounce();
+        bounceSize.setOnComplete(() => {
+            IsDead = false;
+            LeanTween.scale(gameObject, Vector3.one, 0.5f);
+        });
     }
 
     public void UseEnegy(float amount, bool canDie = false, object source = null)
@@ -105,6 +119,13 @@ public class BatController : MonoBehaviour, IDamageReceiver
         HasTheKey = false;
     }
 
+    public void Die()
+    {
+        IsDead = true;
+        transform.position = _respawnPosition.position;
+        Init();
+    }
+
     private void ChangeEnergy(float amount, bool canDie = false, object source = null)
     {
         var newAmount = Mathf.Clamp(CurrentEnergy + amount, 0, _maxEnergy);
@@ -113,6 +134,8 @@ public class BatController : MonoBehaviour, IDamageReceiver
         {
             var delta = newAmount - CurrentEnergy;
             CurrentEnergy = newAmount;
+
+            if (CurrentEnergy <= 0) Die();
 
             if (EnergyChanged != null)
             {
@@ -143,7 +166,7 @@ public class BatController : MonoBehaviour, IDamageReceiver
             yMove = 0;
         }
 
-        _moveController.Move(new Vector2(xMove, yMove));        
+        if (!IsDead) _moveController.Move(new Vector2(xMove, yMove));        
 	}
 
     public void Echo()
