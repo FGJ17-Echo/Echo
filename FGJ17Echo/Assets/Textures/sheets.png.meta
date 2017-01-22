@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: fc21f70cd5cf64290a28941befb8adcd
-timeCreated: 1485041295
+timeCreated: 1485044441
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -438,12 +438,12 @@ TextureImporter:
       name: Bat_With_Key_1
       rect:
         serializedVersion: 2
-        x: 1346
-        y: 1068
-        width: 252
-        height: 685
-      alignment: 9
-      pivot: {x: 0.5, y: 0.61}
+        x: 1372
+        y: 1293
+        width: 178
+        height: 457
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -452,11 +452,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1609
-        y: 1068
+        y: 1327
         width: 252
-        height: 685
+        height: 299
       alignment: 9
-      pivot: {x: 0.5, y: 0.6}
+      pivot: {x: 0.5, y: 0.5693845}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -464,12 +464,12 @@ TextureImporter:
       name: Bat_With_Key3
       rect:
         serializedVersion: 2
-        x: 1873
-        y: 1068
-        width: 252
-        height: 685
+        x: 1913
+        y: 1410
+        width: 167
+        height: 247
       alignment: 9
-      pivot: {x: 0.5, y: 0.62}
+      pivot: {x: 0.5, y: 0.44228545}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -477,12 +477,12 @@ TextureImporter:
       name: Bat_With_Key_4
       rect:
         serializedVersion: 2
-        x: 2138
-        y: 1068
-        width: 252
-        height: 685
-      alignment: 9
-      pivot: {x: 0.5, y: 0.6321289}
+        x: 2149
+        y: 1414
+        width: 212
+        height: 205
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -490,12 +490,12 @@ TextureImporter:
       name: Bat_With_Key_5
       rect:
         serializedVersion: 2
-        x: 2402
-        y: 1068
-        width: 252
-        height: 685
-      alignment: 9
-      pivot: {x: 0.5, y: 0.6223415}
+        x: 2436
+        y: 1359
+        width: 179
+        height: 284
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
