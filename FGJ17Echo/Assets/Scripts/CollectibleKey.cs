@@ -7,6 +7,14 @@ public class CollectibleKey : CollectableEnergySource
     private BatController _carrier;
 
     private float _firstAllowedCollectTime;
+    
+    private void BatController_EnergyChanged(BatController.EnergyChangedEventArgs args)
+    {
+        if (_isCollected && _carrier == args.Bat && args.Delta < 0 && args.CanDie)
+        {
+            Drop(); 
+        }
+    }
 
     public override float Collect(BatController bat)
     {
@@ -14,9 +22,13 @@ public class CollectibleKey : CollectableEnergySource
 
         _carrier = bat;
 
+        _isCollected = true;
+
         gameObject.SetActive(false);
 
         bat.CollectKey();
+
+        BatController.EnergyChanged += BatController_EnergyChanged;
 
         return 0;
     }
@@ -24,10 +36,19 @@ public class CollectibleKey : CollectableEnergySource
     private void Drop()
     {
         _firstAllowedCollectTime = Time.time + 1;
-        transform.position = _carrier.transform.position - Vector3.up;
+        transform.position = _carrier.transform.position - Vector3.up * 0.5f;
         gameObject.SetActive(true);
         _isCollected = false;
         _carrier.DropKey();
         _carrier = null;
+        BatController.EnergyChanged -= BatController_EnergyChanged;
+    }
+
+    private void OnDestroy()
+    {
+        if (_isCollected)
+        {
+            BatController.EnergyChanged -= BatController_EnergyChanged;
+        }
     }
 }
