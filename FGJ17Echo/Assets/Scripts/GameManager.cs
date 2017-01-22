@@ -1,6 +1,8 @@
-﻿using System.Collections;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
@@ -33,5 +35,10 @@ public class GameManager : MonoBehaviour {
 			Debug.Log("ERROR: Unknown game state: " + gs);
 			break;
 		}
-	}
+
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(1);
+        }
+    }
 }
