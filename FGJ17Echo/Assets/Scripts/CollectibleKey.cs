@@ -21,6 +21,8 @@ public class CollectibleKey : CollectableEnergySource
     {
         if (_isCollected || Time.time < _firstAllowedCollectTime) return 0;
 
+        if (bat.HasTheKey) return;
+
         _carrier = bat;
 
         _isCollected = true;
