@@ -8,6 +8,9 @@ public class EchoLocator : MonoBehaviour
     private EchoMask _echoMaskPrefab;
 
     [SerializeField]
+    private EchoMask _echoPriotityMaskPrefab;
+
+    [SerializeField]
     private float _cooldown = 0.5f;
 
     [SerializeField]
@@ -69,14 +72,14 @@ public class EchoLocator : MonoBehaviour
             
             if (hit.collider != null)
             {
-                var echo = Instantiate(_echoMaskPrefab);
-                echo.transform.position = hit.point;
-                echo.Init(hit.distance / 8f);
-
                 var go = hit.collider.attachedRigidbody ? hit.collider.attachedRigidbody.gameObject : hit.collider.gameObject;
 
                 var collectible = go.GetComponent<CollectableEnergySource>();
                 var damage = go.GetComponent<TouchDamage>();
+
+                var echo = Instantiate(collectible || damage ? _echoPriotityMaskPrefab : _echoMaskPrefab);
+                echo.transform.position = hit.point;
+                echo.Init(hit.distance / 8f);
 
                 SoundManager.SoundEffect effect = SoundManager.SoundEffect.NeutralPing;
 
