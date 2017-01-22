@@ -5,7 +5,20 @@ using System.Linq;
 
 public class SoundManager : MonoBehaviour
 {
-    public static SoundManager Instance { get; private set; }
+    private static SoundManager _instance; 
+    public static SoundManager Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                var prefab = Resources.Load<SoundManager>("SoundManager");
+                _instance = Instantiate<SoundManager>(prefab);
+            }
+
+            return _instance;
+        }
+    }
 
     [SerializeField]
     private List<AudioSource> _audioSourcePool;
@@ -50,7 +63,7 @@ public class SoundManager : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     public void PlaySound(SoundEffect effect, Vector3 position)
