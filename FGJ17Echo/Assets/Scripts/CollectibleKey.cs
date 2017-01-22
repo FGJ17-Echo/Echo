@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,7 +27,7 @@ public class CollectibleKey : CollectableEnergySource
 
         gameObject.SetActive(false);
 
-        bat.CollectKey();
+        bat.CollectKey(this);
 
         BatController.EnergyChanged += BatController_EnergyChanged;
 
@@ -52,5 +53,10 @@ public class CollectibleKey : CollectableEnergySource
         {
             BatController.EnergyChanged -= BatController_EnergyChanged;
         }
+    }
+
+    internal void Use()
+    {
+        Destroy(gameObject);
     }
 }

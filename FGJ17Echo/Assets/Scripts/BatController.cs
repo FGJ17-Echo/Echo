@@ -16,7 +16,12 @@ public class BatController : MonoBehaviour, IDamageReceiver
         }
     }
 
-    public bool HasTheKey { get; private set; }
+    private CollectibleKey _key;
+
+    public bool HasTheKey
+    {
+        get { return _key != null;  }
+    }
 
     [SerializeField]
     private EchoLocator _echoLocator;
@@ -91,6 +96,12 @@ public class BatController : MonoBehaviour, IDamageReceiver
         });
     }
 
+    internal void UseKey()
+    {
+        _key.Use();
+        _key = null;
+    }
+
     public void UseEnegy(float amount, bool canDie = false, object source = null)
     {
         if (amount > 0)
@@ -109,14 +120,14 @@ public class BatController : MonoBehaviour, IDamageReceiver
         }
     }
 
-    internal void CollectKey()
+    internal void CollectKey(CollectibleKey key)
     {
-        HasTheKey = true;
+        _key = key;
      }
 
     internal void DropKey()
     {
-        HasTheKey = false;
+        _key = null;
     }
 
     public void Die()
