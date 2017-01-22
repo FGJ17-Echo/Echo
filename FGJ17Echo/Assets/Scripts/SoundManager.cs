@@ -28,6 +28,12 @@ public class SoundManager : MonoBehaviour
     [SerializeField]
     private List<AudioClip> _positiveClips;
 
+    [SerializeField]
+    private List<AudioClip> _pickupClips;
+
+    [SerializeField]
+    private List<AudioClip> _waspPings;
+
     public enum SoundEffect
     {
         Undefined,
@@ -35,7 +41,9 @@ public class SoundManager : MonoBehaviour
         DangerPing,
         BonusPing,
         Damage,
-        PositiveFeedback
+        PositiveFeedback,
+        Pickup,
+        WaspPing
     }
 
     private Dictionary<SoundEffect, float> _soundTimes = new Dictionary<SoundEffect, float>();
@@ -84,6 +92,10 @@ public class SoundManager : MonoBehaviour
                 list = _neutralPings; break;
             case SoundEffect.PositiveFeedback:
                 list = _positiveClips; break;
+            case SoundEffect.Pickup:
+                list = _pickupClips; break;
+            case SoundEffect.WaspPing:
+                list = _waspPings; break;
         }
 
         if (list == null || list.Count == 0) return null;

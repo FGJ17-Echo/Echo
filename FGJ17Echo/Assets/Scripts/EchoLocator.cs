@@ -76,6 +76,7 @@ public class EchoLocator : MonoBehaviour
 
                 var collectible = go.GetComponent<CollectableEnergySource>();
                 var damage = go.GetComponent<TouchDamage>();
+                var wasp = go.GetComponent<WaspSwarm>();
 
                 var echo = Instantiate(collectible || damage ? _echoPriotityMaskPrefab : _echoMaskPrefab);
                 echo.transform.position = hit.point;
@@ -83,7 +84,8 @@ public class EchoLocator : MonoBehaviour
 
                 SoundManager.SoundEffect effect = SoundManager.SoundEffect.NeutralPing;
 
-                if (damage) effect = SoundManager.SoundEffect.DangerPing;
+                if (wasp) effect = SoundManager.SoundEffect.WaspPing;
+                else if (damage) effect = SoundManager.SoundEffect.DangerPing;
                 else if (collectible) effect = SoundManager.SoundEffect.BonusPing;
 
                 SoundManager.Instance.PlaySound(effect, new Vector3(hit.point.x, hit.point.y, 0));

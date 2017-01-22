@@ -30,6 +30,8 @@ public class CollectibleKey : CollectableEnergySource
 
         BatController.EnergyChanged += BatController_EnergyChanged;
 
+        SoundManager.Instance.PlaySound(SoundManager.SoundEffect.Pickup, transform.position);
+
         return 0;
     }
 
