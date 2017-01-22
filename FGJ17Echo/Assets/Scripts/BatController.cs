@@ -201,7 +201,15 @@ public class BatController : MonoBehaviour, IDamageReceiver
         var layermask = _collectableLayerMask;
         var layer = collider.gameObject.layer;
 
-        if (layermask == (layermask | (1 << layer)))
+        if (LayerMask.LayerToName(collider.gameObject.layer) == "Checkpoint")
+        {
+            if (_respawnPosition != collider.gameObject.transform)
+            {
+                _respawnPosition = collider.gameObject.transform;
+                SoundManager.Instance.PlaySound(SoundManager.SoundEffect.PositiveFeedback, _respawnPosition.position);
+            }
+        }
+        else if (layermask == (layermask | (1 << layer)))
         {
             var go = collider.attachedRigidbody ? collider.attachedRigidbody.gameObject : collider.gameObject;
 
