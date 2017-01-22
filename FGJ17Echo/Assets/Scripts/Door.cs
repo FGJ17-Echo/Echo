@@ -20,6 +20,9 @@ public class Door : MonoBehaviour
 
     private LTDescr _openTween;
 
+    [SerializeField]
+    private GameObject _lock;
+
     public bool IsLocked
     {
         get
@@ -31,6 +34,7 @@ public class Door : MonoBehaviour
     public void Unlock()
     {
         _isLocked = false;
+        if (_lock) Destroy(_lock);
     }
 
     public void Open()
@@ -46,6 +50,8 @@ public class Door : MonoBehaviour
         _doorCollider.enabled = false;
 
         IsOpen = true;
+
+        if (_lock) Destroy(_lock);
     }
 
     public void Close()
