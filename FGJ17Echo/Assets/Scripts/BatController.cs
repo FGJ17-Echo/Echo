@@ -152,7 +152,7 @@ public class BatController : MonoBehaviour, IDamageReceiver
 
     private void Update()
     {
-        if (Input.GetButtonUp("Jump")) Echo();
+        if (Input.GetButtonUp("Echo")) Echo();
     }
 
     void FixedUpdate ()
